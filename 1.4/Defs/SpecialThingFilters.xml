@@ -5,7 +5,7 @@
 		<defName>AllowDessicated</defName>
 		<label>allow dessicated</label>
 		<parentCategory>Root</parentCategory>
-		<allowedByDefault>false</allowedByDefault>
+		<allowedByDefault>true</allowedByDefault>
 		<saveKey>allowDessicated</saveKey>
 		<workerClass>ButcherRotten.SpecialThingFilterWorker_Dessicated</workerClass>
 	</SpecialThingFilterDef>
