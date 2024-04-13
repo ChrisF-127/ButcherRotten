@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<SpecialThingFilterDef>
+		<defName>AllowDessicated</defName>
+		<label>allow dessicated</label>
+		<parentCategory>Root</parentCategory>
+		<allowedByDefault>true</allowedByDefault>
+		<saveKey>allowDessicated</saveKey>
+		<workerClass>ButcherRotten.SpecialThingFilterWorker_Dessicated</workerClass>
+	</SpecialThingFilterDef>
+	
+</Defs>

@@ -14,9 +14,7 @@ namespace ButcherRotten
 		{
 			var compRottable = t.TryGetComp<CompRottable>();
 			if (compRottable == null || compRottable.PropsRot.rotDestroys)
-			{
 				return false;
-			}
 			return compRottable.Stage == RotStage.Dessicated;
 		}
 
@@ -24,9 +22,7 @@ namespace ButcherRotten
 		{
 			var compProperties = def.GetCompProperties<CompProperties_Rottable>();
 			if (compProperties != null)
-			{
 				return !compProperties.rotDestroys;
-			}
 			return false;
 		}
 	}
