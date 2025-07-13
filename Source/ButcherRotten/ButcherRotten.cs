@@ -1,49 +1,53 @@
-﻿using HugsLib.Settings;
+﻿using HarmonyLib;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 using Verse;
 
 namespace ButcherRotten
 {
-    public class ButcherRotten : HugsLib.ModBase
-    {
-        public static SettingHandle<float> MeatModifier;
-        public static SettingHandle<float> LeatherModifier;
-        public static SettingHandle<float> OtherModifier;
-        public static SettingHandle<float> VarianceModifier;
+    public class ButcherRotten : Mod
+	{
+		#region PROPERTIES
+		public static ButcherRotten Instance { get; private set; }
+		public static ButcherRottenSettings Settings { get; private set; }
+		#endregion
 
-        public override void DefsLoaded()
+		#region CONSTRUCTORS
+		static ButcherRotten()
 		{
-            MeatModifier = Settings.GetHandle(
-                nameof(MeatModifier),
-                "SY_BR.MeatModifier".Translate(),
-                "SY_BR.MeatModifierDesc".Translate(new NamedArgument(0f.ToString(), "default")),
-                0f,
-                Validators.FloatRangeValidator(0f, 1f));
+			var harmony = new Harmony("sy.butcherrotten");
+			harmony.PatchAll();
+		}
 
-            LeatherModifier = Settings.GetHandle(
-                nameof(LeatherModifier),
-                "SY_BR.LeatherModifier".Translate(),
-                "SY_BR.LeatherModifierDesc".Translate(new NamedArgument(0.2f.ToString(), "default")),
-                0.2f,
-                Validators.FloatRangeValidator(0f, 1f));
+		public ButcherRotten(ModContentPack content) : base(content)
+		{
+			Instance = this;
 
-            OtherModifier = Settings.GetHandle(
-                nameof(OtherModifier),
-                "SY_BR.OtherModifier".Translate(),
-                "SY_BR.OtherModifierDesc".Translate(new NamedArgument(0.1f.ToString(), "default")),
-                0.1f,
-                Validators.FloatRangeValidator(0f, 1f));
+			LongEventHandler.ExecuteWhenFinished(Initialize);
+		}
+		#endregion
 
-            VarianceModifier = Settings.GetHandle(
-                nameof(VarianceModifier),
-                "SY_BR.VarianceModifier".Translate(),
-                "SY_BR.VarianceModifierDesc".Translate(new NamedArgument(0f.ToString(), "default")),
-                0f,
-                Validators.FloatRangeValidator(0f, 1f));
-        }
-    }
+		#region OVERRIDES
+		public override string SettingsCategory() =>
+			"Butcher Rotten";
+
+		public override void DoSettingsWindowContents(Rect inRect)
+		{
+			base.DoSettingsWindowContents(inRect);
+
+			Settings.DoSettingsWindowContents(inRect);
+		}
+		#endregion
+
+		#region PRIVATE METHODS
+		private void Initialize()
+		{
+			Settings = GetSettings<ButcherRottenSettings>();
+		}
+		#endregion
+	}
 }

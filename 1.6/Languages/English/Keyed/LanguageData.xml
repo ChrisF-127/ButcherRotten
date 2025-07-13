@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<SY_BR.MeatModifier>Meat</SY_BR.MeatModifier>
+	<SY_BR.MeatModifierDesc>Meat yield of a rotting corpse
+default: {default}
+
+0 = 0%
+1 = 100%</SY_BR.MeatModifierDesc>
+
+	<SY_BR.LeatherModifier>Leather</SY_BR.LeatherModifier>
+	<SY_BR.LeatherModifierDesc>Leather yield of a rotting corpse
+default: {default}
+
+0 = 0%
+1 = 100%</SY_BR.LeatherModifierDesc>
+
+	<SY_BR.OtherModifier>Other products</SY_BR.OtherModifier>
+	<SY_BR.OtherModifierDesc>Other products's yield of a rotting corpse 
+(for example elephant tusks or thrumbo horns)
+default: {default}
+
+0 = 0%
+1 = 100%</SY_BR.OtherModifierDesc>
+
+	<SY_BR.VarianceModifier>Variance</SY_BR.VarianceModifier>
+	<SY_BR.VarianceModifierDesc>Adds a yield variance modifier (there will always be a variation of +/-1)
+default: {default}
+
+0.0 = disabled
+0.1 = 10% yield variation
+0.5 = 50% yield variation
+1.0 = 100% yield variation - results in yields between 0 and twice the amount depending on the respective modifier</SY_BR.VarianceModifierDesc>
+	
+</LanguageData>

@@ -26,7 +26,7 @@ namespace ButcherRotten
 					float modifier;
 
 					// calculate variance
-					float variance = ButcherRotten.VarianceModifier;
+					float variance = ButcherRotten.Settings.VarianceModifier * 0.01f;
 					variance = Rand.Range(-variance, variance);
 
 					// get stackcount
@@ -43,21 +43,21 @@ namespace ButcherRotten
 							// meat
 							if (category == ThingCategoryDefOf.MeatRaw)
 							{
-								modifier = ButcherRotten.MeatModifier;
+								modifier = ButcherRotten.Settings.MeatModifier * 0.01f;
 								goto ADD_THING;
 							}
 
 							// leather
 							if (category == ThingCategoryDefOf.Leathers)
 							{
-								modifier = ButcherRotten.LeatherModifier;
+								modifier = ButcherRotten.Settings.LeatherModifier * 0.01f;
 								goto ADD_THING;
 							}
 						}
 					}
 
 					// other products
-					modifier = ButcherRotten.OtherModifier;
+					modifier = ButcherRotten.Settings.OtherModifier * 0.01f;
 					
 					ADD_THING:
 					// calculate stack count
